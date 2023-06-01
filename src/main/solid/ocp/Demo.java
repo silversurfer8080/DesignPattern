@@ -1,7 +1,9 @@
 package ocp;
 
+import ocp.goodway.AndSpecification;
 import ocp.goodway.ColorSpecification;
 import ocp.goodway.CorrectProductFilter;
+import ocp.goodway.SizeSpecification;
 
 import java.util.List;
 
@@ -24,6 +26,8 @@ public class Demo {
         CorrectProductFilter filter = new CorrectProductFilter();
         System.out.println("Green products only with new filter: ");
         filter.filter(products, new ColorSpecification(Color.GREEN)).forEach(p -> System.out.println(" - " + p.getName() + " is green"));
+
+        filter.filter(products, new AndSpecification<>(new ColorSpecification(Color.GREEN), new SizeSpecification(Size.LARGE))).forEach(p -> System.out.println(" - " + p.getName() + " is green and large"));
 
     }
 }
