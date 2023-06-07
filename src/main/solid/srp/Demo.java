@@ -1,3 +1,5 @@
+package srp;
+
 import srp.good.Journal;
 import srp.good.Persistence;
 
